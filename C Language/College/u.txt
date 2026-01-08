@@ -1,0 +1,78 @@
+Code Explanation
+This program defines a custom data structure to hold a pair of numbers (an integer and a float), creates two instances of this structure, assigns them values, and then prints those values to the console.
+
+Let's break it down line by line:
+
+#include<stdio.h>
+
+This line is a preprocessor directive that includes the "Standard Input/Output" library. This library provides functions for input and output operations, most notably printf() which is used later in the code to display text on the screen.
+struct Data { ... };
+
+This defines a structure named Data. A struct is a user-defined data type that lets you group different data types together under a single name.
+Think of it as a blueprint. This blueprint, Data, says that any variable of this type will contain two members:
+int num1;: An integer variable.
+float num2;: A floating-point (decimal number) variable.
+int main() { ... }
+
+This is the main function of the program. Execution of any C program always begins here.
+struct Data d1, d2;
+
+Inside main, this line declares two variables, d1 and d2.
+Their type is struct Data, meaning each one is an instance of the blueprint we defined earlier. So, d1 has its own num1 and num2, and d2 has its own num1 and num2.
+Value Assignments
+
+d1.num1 = 10; and d1.num2 = 33.5;
+The dot (.) is the "member access operator". It's used to access a specific member inside a struct variable.
+These lines assign the value 10 to the num1 member of d1 and 33.5 to the num2 member of d1.
+d2.num1 = 2.45;
+This line is particularly interesting. You are assigning a floating-point value (2.45) to an integer member (d2.num1). In C, this causes truncation, where the decimal part is simply dropped. Therefore, the value stored in d2.num1 will be 2.
+d2.num2 = 0.0;
+This assigns the value 0.0 to the num2 member of d2.
+printf(...) Statements
+
+printf("d1: num1=%d, d1: num2=%.2f\n", d1.num1, d1.num2);
+This function prints the values of d1's members.
+%d is a format specifier for an integer. It gets replaced by the value of d1.num1.
+%.2f is a format specifier for a float, formatted to show exactly two decimal places. It gets replaced by the value of d1.num2.
+\n is a newline character, which moves the cursor to the next line for subsequent output.
+printf("d2: num1=%d, d2: num2=%.2f\n", d2.num1, d2.num2);
+This does the same for the d2 variable. The output for d2.num1 will be 2, demonstrating the truncation mentioned earlier.
+return 0;
+
+This line signals to the operating system that the program has executed successfully.
+Code Quality Suggestions
+The code is clear and functional. Here are a couple of minor suggestions that align with common C programming practices.
+
+Use f Suffix for float Literals: When you write a decimal number like 33.5, the C compiler treats it as a double (a more precise, 64-bit floating-point number) by default. Assigning it to a float (a 32-bit floating-point number) causes an implicit conversion. It's better practice to be explicit by adding an f suffix.
+
+Consistent printf Formatting: The text in the printf strings can be made slightly more concise.
+
+Here is the suggested change:
+
+Uni-1.c
+-4
++4
+ Show full code block 
+
+    
+    d1.num1 = 10;
+    d1.num2 = 33.5;
+    d1.num2 = 33.5f; // Use 'f' suffix for float literals for type safety.
+    d2.num1 = 2.45;
+    d2.num2 = 0.0; 
+    d2.num2 = 0.0f; // This is also a float literal.
+
+    
+    printf("d1: num1=%d, d1: num2=%.2f\n", d1.num1, d1.num2);
+    printf("d2: num1=%d, d2: num2=%.2f\n", d2.num1, d2.num2);
+    printf("d1: num1=%d, num2=%.2f\n", d1.num1, d1.num2);
+    printf("d2: num1=%d, num2=%.2f\n", d2.num1, d2.num2);
+    
+    return 0;
+}
+
+When you run the corrected code, the output will be:
+
+text
+d1: num1=10, num2=33.50
+d2: num1=2, num2=0.00

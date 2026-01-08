@@ -1,0 +1,13 @@
+Write a Program for Arithmetic Operation using Functions ?
+write a Program to swap 2 no. using functions ?
+write a Program for arthematic operation using switch case 
+write a Program to swap no. using call by refrance
+write a Program to draw pattern 
+write a Program to calculate elements of array and find average of elements?
+write a Program write a program to find area of rectangle ,triangle using switcase 
+write a Program for break and continue with for loop
+write a Program for reversing a no.
+write a Program for to print factorial no. ?
+write a Program to compare two no. termeri operator
+write a Program to find even or odd no using function with parameter and return a value?
+
